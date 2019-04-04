@@ -76,4 +76,10 @@ public class TestMap {
             super.run();
         }
     }
+
+    @Test
+    public void testMap(){
+        Map<Integer,Integer> map = new HashMap<>();
+        System.out.println(map.get(0));
+    }
 }
