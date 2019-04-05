@@ -39,7 +39,8 @@ public class _05Trie2 {
         void insert(String word, int index){
 
             if (index == word.length()){
-                this.hasWord = true; // 表明这个节点是某个单词的结尾
+                // 表明这个节点是某个单词的结尾
+                this.hasWord = true;
                 return;
             }
             int pos = word.charAt(index) - 'a';
@@ -51,7 +52,9 @@ public class _05Trie2 {
 
         TrieNode search(String word, int index){
 
-            if (index == word.length()) return this;
+            if (index == word.length()) {
+                return this;
+            }
             int pos = word.charAt(index)-'a';
             if (child[pos]!=null){
                 return child[pos].search(word,index+1);

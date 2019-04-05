@@ -30,8 +30,9 @@ public class _05Trie {
     public boolean startsWith(String prefix) {
 
         for (String s : queue) {
-            if (s.startsWith(prefix))
+            if (s.startsWith(prefix)) {
                 return true;
+            }
         }
         return false;
     }
