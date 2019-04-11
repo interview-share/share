@@ -1,8 +1,12 @@
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.function.BiConsumer;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -134,5 +138,73 @@ public class Java8Stream implements Cloneable {
     @Test
     public void test4(){
 
+    }
+
+    @Test
+    public void test5(){
+        Stream<Integer> stream = Stream.of(1,5,9,7,6,3,4,8);
+//        Optional<Integer> max = stream.max((x,y) -> x-y);
+        Optional<Integer> max = stream.max(Comparator.comparingInt(x -> x));
+        System.out.println(max.get());
+    }
+
+    @Test
+    public void test6() {
+        // 求单词长度之和
+        Stream<String> stream = Stream.of("I", "love", "you", "too");
+        // 初始值　// (1)
+        // 累加器 // (2)
+        // 部分和拼接器，并行执行时才会用到 // (3)
+        Integer lengthSum = stream.reduce(0,(sum, str) -> sum+str.length(),(a,b)->a+b);
+        // int lengthSum = stream.mapToInt(str -> str.length()).sum();
+        System.out.println(lengthSum);
+    }
+
+    @Test
+    public void test7() {
+
+        // 将Stream转换成容器或Map
+        Stream<String> stream = Stream.of("I", "love", "you", "too");
+        List<String> list = stream.collect(Collectors.toList());
+        Set<String> set = stream.collect(Collectors.toSet());
+        // Collectors.toMap(k,v)
+        Map<String, Integer> map = stream.collect(Collectors.toMap(Function.identity(), String::length));
+
+        System.out.println("=======end=======");
+    }
+
+    @Test
+    public void test8() {
+        // 使用toCollection()指定规约容器的类型
+        Stream<String> stream = Stream.of("I", "love", "you", "too");
+////        ArrayList<String> arrayList = stream.collect(Collectors.toCollection(() ->new ArrayList<>()));// (3)
+//        ArrayList<String> list = stream.collect(Collectors.toCollection(ArrayList::new));
+//        HashSet<String> hashSet = stream.collect(Collectors.toCollection(HashSet::new));// (4)
+
+        // 分为两部分,即是否满足指定的条件,如字符串的长度是否大于3
+//        Map<Boolean, List<String>> mapTF = stream.collect(Collectors.partitioningBy((x) -> x.length() > 3));
+
+        // 根据不同返回结果进行分类,如根据字符串的长度分组
+//        Map<Integer, List<String>> mapGroup = stream.collect(Collectors.groupingBy(String::length));
+
+        /**
+         * // 使用下游收集器统计每个部门的人数
+         * Map<Department, Integer> totalByDept = employees.stream()
+         *                     .collect(Collectors.groupingBy(Employee::getDepartment,
+         *                                                    Collectors.counting()));// 下游收集器
+         */
+        Map<Integer, Long> countMap = stream.collect(Collectors.groupingBy(String::length,Collectors.counting()));
+
+        System.out.println("=======end=======");
+    }
+
+    /**
+     * 使用collect()做字符串join
+     */
+    @Test
+    public void test9() {
+        Stream<String> stream = Stream.of("I", "love", "you", "too");
+        String collect = stream.collect(Collectors.joining(",", "{", "}"));
+        System.out.println(collect);
     }
 }
