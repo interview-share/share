@@ -1,3 +1,5 @@
+package bytedance.array;
+
 /**
  * @author LRK
  * @project_name LeetCode
@@ -17,7 +19,7 @@
  * 输入: [0,1,0,2,1,0,1,3,2,1,2,1]
  * 输出: 6
  */
-public class Trap {
+public class _10Trap {
     public int trap(int[] height) {
 
         int left = 0,right = height.length-1;

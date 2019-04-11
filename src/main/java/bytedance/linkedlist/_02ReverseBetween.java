@@ -1,11 +1,11 @@
-package linkedlist;
+package bytedance.linkedlist;
 
 import common.ListNode;
 
 /**
  * @author LRK
  * @project_name LeetCode
- * @package_name linkedlist
+ * @package_name bytedance.linkedlist
  * @date 2019/4/10 21:12
  * @description God Bless, No Bug!
  *

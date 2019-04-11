@@ -5,7 +5,7 @@ import common.ListNode;
 /**
  * @author LRK
  * @project_name LeetCode
- * @package_name linkedlist
+ * @package_name bytedance.linkedlist
  * @date 2019/3/12 22:00
  * @description God Bless, No Bug!
  *
@@ -31,7 +31,9 @@ public class _03SortList {
      */
     public ListNode sortList(ListNode head) {
 
-        if (head==null || head.next==null) return head;
+        if (head==null || head.next==null) {
+            return head;
+        }
 
         ListNode slow=head,fast=head,preEnd=head;
         while (fast!=null && fast.next!=null){

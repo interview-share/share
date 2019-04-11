@@ -5,7 +5,7 @@ import common.ListNode;
 /**
  * @author LRK
  * @project_name LeetCode
- * @package_name linkedlist
+ * @package_name bytedance.linkedlist
  * @date 2019/3/12 21:42
  * @description God Bless, No Bug!
  *
