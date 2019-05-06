@@ -51,6 +51,28 @@ public class _03GrayCode {
 
         List<Integer> res = new ArrayList<>();
 
+        for (int i = 0; i < Math.pow(2,n); i++) {
+            res.add((i>>1)^i);
+        }
+        return res;
+    }
+
+    /**
+     * 镜像对称
+     * @param n
+     * @return
+     */
+    public List<Integer> grayCode2(int n) {
+
+        List<Integer> res = new ArrayList<>();
+        res.add(0);
+        for (int i = 0; i < n; i++) {
+            // 当前list中的数据作为前一半,在后一半的前面添加'1'(即 |(1<<i) )
+            int size = res.size();
+            for (int j = size-1; j >= 0; j--) {
+                res.add(res.get(j) | (1<<i));
+            }
+        }
         return res;
     }
 }
