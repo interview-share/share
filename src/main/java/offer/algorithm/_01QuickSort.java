@@ -172,6 +172,12 @@ public class _01QuickSort {
         quickSort3(arr, end + 1, high);
     }
 
+    /**
+     * 三数取中间值
+     * @param arr
+     * @param left
+     * @param right
+     */
     private static void dealPivot(int[] arr, int left, int right) {
 
         int mid = (left + right) >> 1;
@@ -181,7 +187,7 @@ public class _01QuickSort {
         if (arr[left] > arr[right]) {
             swap(arr, left, right);
         }
-        if (arr[right] < arr[mid]) {
+        if (arr[mid] > arr[right]) {
             swap(arr, right, mid);
         }
         swap(arr, left, mid);

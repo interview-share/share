@@ -5,9 +5,9 @@ import java.util.*;
 /**
  * @author LRK
  * @date 2019/4/4 20:32
- * project_name LeetCode
- * package_name algorithm.graph
- * description:
+ * @project_name LeetCode
+ * @package_name algorithm.graph
+ * @description:
  * God Bless, No Bug!
  *
  *  单词接龙

@@ -4,7 +4,7 @@ package bytedance.dp;
  * @author LRK
  * @date 2019/4/7 0:13
  * @project LeetCode
- * description:
+ * @description:
  * God Bless, No Bug!
  *
  * 最大子序和

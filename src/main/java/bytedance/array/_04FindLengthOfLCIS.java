@@ -25,6 +25,12 @@ package bytedance.array;
  */
 public class _04FindLengthOfLCIS {
 
+    /**
+     * 典型动态规划,数组dp[i]记录以nums[i]结尾的递增序列长度
+     * 数组也可用一个变量替换节省空间
+     * @param nums
+     * @return
+     */
     public int findLengthOfLCIS(int[] nums) {
 
         int n = nums.length;

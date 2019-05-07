@@ -21,7 +21,8 @@ public class TreeUtil {
     private static TreeNode constructBinaryTreeCore(int[] pre, int startPre, int endPre, int[] in, int startIn, int endIn) {
 
         TreeNode root = new TreeNode(pre[startPre]);
-        if (startPre == endPre){ // 判断是否结束,只有一个节点时结束
+        // 判断是否结束,只有一个节点时结束
+        if (startPre == endPre){
             if (startIn == endIn){
                 return root;
             }

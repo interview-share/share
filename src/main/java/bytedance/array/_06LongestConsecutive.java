@@ -30,7 +30,7 @@ public class _06LongestConsecutive {
             if (map.containsKey(num)) {
                 continue;
             }
-            // map (key,value) 表示包含key 的最长连续序列的长度
+            // map (key,value) 表示包含 key 的最长连续序列的长度
             int left = map.getOrDefault(num - 1, 0);
             int right = map.getOrDefault(num + 1, 0);
 

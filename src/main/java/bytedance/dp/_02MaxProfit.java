@@ -40,6 +40,12 @@ public class _02MaxProfit {
         System.out.println(new _02MaxProfit().maxProfit(new int[]{7,1,5,3,6,4}));
     }
 
+    /**
+     * 如果股票价格递增,则更新最大收益
+     * 否则卖出,并更新最低价为当前价格,最大收益为0
+     * @param prices
+     * @return
+     */
     public int maxProfit(int[] prices) {
 
         int sum = 0;
@@ -47,10 +53,12 @@ public class _02MaxProfit {
         if (n<2){
             return sum;
         }
+        // 记录当次购买股票的最低价和最大收益
         int min = prices[0];
         int max = 0;
         for (int i = 1; i < n; i++) {
-
+            // 如果股票价格递增,则更新最大收益
+            // 否则卖出,并更新最低价为当前价格,最大收益为0
             if (prices[i]>=prices[i-1]){
                 max = prices[i]-min;
             }else {

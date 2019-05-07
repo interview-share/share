@@ -6,21 +6,21 @@ import java.util.Map;
  * @author LRK
  * @date 2019/4/6 23:17
  * @project LeetCode
- * description:
+ * @description:
  * God Bless, No Bug!
- * <p>
+ *
  * 最大正方形
  * 在一个由 0 和 1 组成的二维矩阵内，找到只包含 1 的最大正方形，并返回其面积。
- * <p>
+ *
  * 示例:
- * <p>
+ *
  * 输入:
- * <p>
+ *
  * 1 0 1 0 0
  * 1 0 1 1 1
  * 1 1 1 1 1
  * 1 0 0 1 0
- * <p>
+ *
  * 输出: 4
  */
 public class _03MaximalSquare {

@@ -28,13 +28,15 @@ package bytedance.dp;
  */
 public class _01MaxProfit {
 
+
     public int maxProfit(int[] prices) {
 
         int min = prices[0];
         int n = prices.length;
         int max = 0;
         for (int i = 1; i < n; i++) {
-
+            // 如果当前价格小于最低价,更新最低价
+            // 否则计算收益是否大于当前最大收益
             if (prices[i]<min){
                 min = prices[i];
             }else {

@@ -1,4 +1,4 @@
-package bytedance;
+package bytedance.other;
 
 import java.util.*;
 

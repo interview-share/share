@@ -40,7 +40,18 @@ public class _03Search {
         return search(nums, 0, nums.length - 1, target);
     }
 
+    /**
+     *  logN复杂度,一般为二分法
+     *      螺旋数组一分为二之后,至少有一半是递增的,另一半可能递增,也可能仍是螺旋数组
+     *      分别考虑即可
+     * @param nums
+     * @param low
+     * @param high
+     * @param target
+     * @return
+     */
     private int search(int[] nums, int low, int high, int target) {
+        // 终止条件
         if (low > high) {
             return -1;
         }
@@ -49,16 +60,17 @@ public class _03Search {
             return mid;
         }
         // 中点一分为二之后,至少有一半是递增的,另一半可能递增,也可能仍是螺旋数组
-
         if (nums[mid] < nums[high]) {
-            // 后半部分递增,并且要找的值在后半段递增部分
+            // 后半部分递增
+            // 要找的值在后半段递增部分
             if (nums[mid] < target && target <= nums[high]) {
                 return search(nums, mid + 1, high, target);
             } else {
                 return search(nums, low, mid - 1, target);
             }
         } else {
-            // 前半部分递增,并且要找的值在前半段递增部分
+            // 前半部分递增
+            // 要找的值在前半段递增部分
             if (nums[low] <= target && target < nums[mid]) {
                 return search(nums, low, mid - 1, target);
             } else {

@@ -29,6 +29,13 @@ public class _05FindKthLargest {
         System.out.println(new _05FindKthLargest().findKthLargest(new int[]{3,2,3,1,2,4,5,5,6},4));
     }
 
+    /**
+     * 快排思路,每次确定一个数在最终序列的位置,如果正好等于 k 返回结果;
+     *  否则继续partition
+     * @param nums
+     * @param k
+     * @return
+     */
     public int findKthLargest(int[] nums, int k) {
 
         int n = nums.length;

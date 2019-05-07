@@ -1,4 +1,4 @@
-package bytedance;
+package bytedance.other;
 
 /**
  * @author LRK

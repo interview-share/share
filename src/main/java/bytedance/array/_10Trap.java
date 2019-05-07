@@ -12,7 +12,9 @@ package bytedance.array;
  *
  *
  *
- * 上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。 感谢 Marcos 贡献此图。
+ * 上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，
+ * 在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。
+ * 感谢 Marcos 贡献此图。
  *
  * 示例:
  *
@@ -20,6 +22,12 @@ package bytedance.array;
  * 输出: 6
  */
 public class _10Trap {
+
+    /**
+     * 从两端向中间遍历,选取较小的一端移动指针,若递减则在结果中加上差值
+     * @param height
+     * @return
+     */
     public int trap(int[] height) {
 
         int left = 0,right = height.length-1;
