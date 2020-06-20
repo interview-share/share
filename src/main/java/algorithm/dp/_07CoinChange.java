@@ -8,18 +8,19 @@ import java.util.Arrays;
  * @package_name algorithm.dp
  * @date 2019/4/3 23:39
  * @description God Bless, No Bug!
- * <p>
+ *
  * 零钱兑换
  * 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。
  * 如果没有任何一种硬币组合能组成总金额，返回 -1。
- * <p>
+ *
  * 示例 1:
- * <p>
+ *
  * 输入: coins = [1, 2, 5], amount = 11
  * 输出: 3
  * 解释: 11 = 5 + 5 + 1
+ *
  * 示例 2:
- * <p>
+ *
  * 输入: coins = [2], amount = 3
  * 输出: -1
  * 说明:
@@ -82,13 +83,9 @@ public class _07CoinChange {
         if (coins.length == 0) {
             return -1;
         }
-        //这个判断纯属应付测试用例
-        if (amount == 0) {
-            return 0;
-        }
         //dp[i]表示硬币能组成的和为i的最小个数；
         int[] dp = new int[amount+1];
-        Arrays.fill(dp, Integer.MAX_VALUE);
+        Arrays.fill(dp, Integer.MAX_VALUE-1);
         dp[0] = 0;
         for (int i = 1; i <= amount; i++) {
             for(int coin:coins) {
@@ -97,6 +94,6 @@ public class _07CoinChange {
                 }
             }
         }
-        return dp[amount]==Integer.MAX_VALUE?-1:dp[amount];
+        return dp[amount]==Integer.MAX_VALUE-1?-1:dp[amount];
     }
 }

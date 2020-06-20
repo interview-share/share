@@ -15,7 +15,9 @@ public class Sub63_MaxProfits {
     }
 
     public int getMaxProfit(int[] price){
-        if (price==null || price.length<2) return 0;
+        if (price==null || price.length<2) {
+            return 0;
+        }
 
         int min = price[0];
         int maxProfit = price[1]-price[0];
