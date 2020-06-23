@@ -15,11 +15,12 @@ public class Sub15_NumberOf1InBinary {
     public static void main(String[] args) {
         int result = getCount3(7);
         System.out.println(result);
+        System.out.println(-3/2);
     }
 
     /**
      * 推荐:
-     *  --** num & (num-1)---将最右边的1变为0
+     *   num & (num-1)---将最右边的1变为0
      *    (num-1)---将num的最右边的1变为0,若该1后面还有0,则将其后面所有的0变为1
      *    同理: (num+1)---将num最右边的0变成1,若该0后面还有1,则将其后面所有的1变成0
      * @param num
@@ -56,8 +57,11 @@ public class Sub15_NumberOf1InBinary {
     }
 
     /**
-     * num右移与'1'进行与运算,输入负数时会造成死循环,因为负数逻辑右移时是在左边补符号位'1'
+     * num右移与'1'进行与运算,输入负数时会造成死循环,因为负数算术右移时是在左边补符号位'1'
      *
+     * >>> 逻辑右移
+     * >> 算术右移
+     * << 左移
      * @param num
      * @return
      */
@@ -67,7 +71,7 @@ public class Sub15_NumberOf1InBinary {
             if ((num & 0b1) != 0) {
                 count++;
             }
-            num = num >> 1;
+            num = num >>> 1;
         }
         return count;
     }

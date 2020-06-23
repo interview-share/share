@@ -62,37 +62,33 @@ public class Sub14_CuttingRope {
      *     长度为 3，剪成长度分别为 1 和 2 的两段，乘积比较大，因此 f(3) = 2
      *     长度为 n，在剪第一刀的时候，有 n-1 种可能的选择，剪出来的绳子又可以继续剪，
      *     可以看出，原问题可以划分为子问题，子问题又有重复子问题。
-     * @param number
+     * @param target
      * @return
      */
-    private static int getMaxProduct(int number) {
+    private static int getMaxProduct(int target) {
 
-        if (number<2){
+        if (target<2){
             return 0;
         }
-        if (number == 2) {
+        if (target == 2) {
             return 1;
         }
-        if (number == 3) {
+        if (target == 3) {
             return 2;
         }
         // 子问题的最优解,保存下来避免重复计算
-        int[] product = new int[number+1];
+        int[] product = new int[target+1];
         product[0] = 0;
         product[1] = 1;
         product[2] = 2;
         product[3] = 3;
         int max=0;
-        for (int i=4;i<=number;i++){
+        for (int i=4;i<=target;i++){
             max = 0;
            for (int j=1;j<=i/2;j++){
-               int res = product[j]*product[i-j];
-               if (res > max){
-                   max = res;
-               }
-               product[i] = max;
+               product[i] = Math.max(max,product[j]*product[i-j]);
            }
         }
-        return product[number];
+        return product[target];
     }
 }

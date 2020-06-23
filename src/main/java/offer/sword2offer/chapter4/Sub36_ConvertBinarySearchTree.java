@@ -10,12 +10,22 @@ import java.util.Stack;
  * @package_name sword2offer.chapter4
  * @date 2019/2/5 18:11
  * @description God Bless, No Bug!
+ *
+ * 题目描述
+ * 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。
+ *
+ * 解法
+ * 由于是二叉搜索树，因此中序遍历的结果就是排序的。
+ *
+ * 中序遍历利用栈来实现。遍历时，前一个结点的 right 指向后一个结点，后一个结点的 left 指向前一个结点。
  */
 public class Sub36_ConvertBinarySearchTree {
 
     public TreeNode Convert(TreeNode pRootOfTree) {
 
-        if (pRootOfTree == null) return null;
+        if (pRootOfTree == null) {
+            return null;
+        }
         Stack<TreeNode> stack = new Stack<>();
         TreeNode cur = pRootOfTree;
         TreeNode pre = null;

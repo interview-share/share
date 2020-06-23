@@ -97,7 +97,8 @@ public class Sub05_ReplaceBlank {
             arrayA[i] = j;
         }
         int[] arrayB = {2, 4, 6, 8, 10};
-        int p = 0; // A中最后一个非0数字的index 4
+        // A中最后一个非0数字的index 4
+        int p = 0;
         for (int i = arrayA.length - 1; i > 0; i--) {
             if (arrayA[i] != 0) {
                 p = i;

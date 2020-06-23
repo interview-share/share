@@ -21,14 +21,14 @@ package offer.sword2offer.chapter3;
  */
 public class Sub17_Print1ToMaxNDigits {
     public static void main(String[] args) {
-        print1ToMax2(3);
+        print1ToMax(3);
     }
 
     private static void print1ToMax2(int n) {
         char[] num = new char[n];
 //        num[n]='\0';
         for (int i = 0; i < 10; i++) {
-            num[0] = (char) (i+'0');
+            num[i] = '0';
             doPrintRecursion(num,n,0);
         }
     }
@@ -51,6 +51,7 @@ public class Sub17_Print1ToMaxNDigits {
         for (int i = 0; i < n; i++) {
             num[i] = '0';
         }
+        // 换行
         int back = 0;
         while (!increment(num)) {
             back++;

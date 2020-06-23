@@ -2,7 +2,6 @@ package offer.test;
 
 import common.TreeNode;
 import offer.common.BinaryTreeUtil;
-import org.junit.jupiter.api.Test;
 
 /**
  * @author LRK
@@ -23,14 +22,12 @@ public class StringTest {
         System.out.println(text);
     }
 
-    @Test
     public void test(){
         int a = 8;
         int b = 8;
         int c = (a+b)>>1;
         System.out.println(c);
     }
-    @Test
     public void testLevelTraverse(){
 
         int[] pre = {1,2,4,5,3,6,7};

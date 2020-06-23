@@ -30,11 +30,7 @@ public class Sub13_RobotMove {
             return 0;
         }
         boolean[] visited = new boolean[rows * cols];
-        for (int i = 0; i < visited.length; i++) {
-            visited[i] = false;
-        }
-        int count = countCore(threshold, rows, cols, 0, 0, visited);
-        return count;
+        return countCore(threshold, rows, cols, 0, 0, visited);
     }
 
     private static int countCore(int threshold, int rows, int cols, int i, int j, boolean[] visited) {

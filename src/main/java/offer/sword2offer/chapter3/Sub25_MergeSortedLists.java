@@ -9,9 +9,18 @@ import offer.common.ListNode;
  * @package_name sword2offer.chapter3
  * @date 2019/2/2 23:19
  * @description God Bless, No Bug!
+ *
+ * 题目描述
+ * 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。
  */
 public class Sub25_MergeSortedLists {
 
+    /**
+     * 递归
+     * @param list1
+     * @param list2
+     * @return
+     */
     public ListNode mergeRecursion(ListNode list1, ListNode list2) {
         if (list1 == null){
             return list2;
@@ -26,6 +35,13 @@ public class Sub25_MergeSortedLists {
             return list2;
         }
     }
+
+    /**
+     * 归并
+     * @param list1
+     * @param list2
+     * @return
+     */
     public ListNode merge(ListNode list1, ListNode list2) {
         if (list1 == null){
             return list2;
@@ -33,7 +49,7 @@ public class Sub25_MergeSortedLists {
             return list1;
         }
         ListNode dummy = new ListNode(-1);
-        ListNode cur = null;
+        ListNode cur = dummy;
         dummy.next = cur;
         ListNode p1=list1,p2=list2;
         while (p1!=null && p2!=null){

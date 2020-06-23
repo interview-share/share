@@ -6,6 +6,25 @@ package offer.sword2offer.chapter6;
  * @package_name sword2offer.chapter5
  * @date 2019/2/9 16:50
  * @description God Bless, No Bug!
+ * 题目描述
+ * 一个长度为 n-1 的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围 0 到 n-1 之内。
+ *
+ * 在范围 0 到 n-1 的 n 个数字中有且只有一个数字不在该数组中，请找出这个数字。
+ *
+ * 样例
+ *
+ * 输入：[0,1,2,4]
+ *
+ * 输出：3
+ * 解法
+ * 找出第一个与下标不对应的数字即可。
+ *
+ * 特殊情况：
+ *
+ * 下标都对应，那么应该返回 最后一个数+1；
+ * 缺失的数字是第一个，那么返回 0。
+ *
+ *
  */
 public class Sub53_2GetMissingNumber {
     public static void main(String[] args) {
@@ -29,7 +48,8 @@ public class Sub53_2GetMissingNumber {
         while (start<=end){
             int mid = (start+end)/2;
             if (array[mid]!=mid){
-                if ( mid == 0 || array[mid-1]==mid-1){ // mid是第一个不等于下标的
+                // mid是第一个不等于下标的
+                if ( mid == 0 || array[mid-1]==mid-1){
                     return mid;
                 }else { // 继续往前查找
                     end = mid-1;
@@ -38,7 +58,9 @@ public class Sub53_2GetMissingNumber {
                 start = mid+1;
             }
         }
-        if (start == array.length-1) return start;
+        if (start == array.length-1) {
+            return start;
+        }
         return -1;
     }
     public int getMissingNumber2(int[] nums) {

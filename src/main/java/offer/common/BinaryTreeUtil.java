@@ -38,12 +38,12 @@ public class BinaryTreeUtil {
             while (current != null) {
                 list.add(current);
                 stack.push(current);
-                current = current.leftChild;
+                current = current.left;
             }
             // 栈为空表示所有入栈节点的右子树都访问过了
             if (!stack.isEmpty()) {
                 BinaryTreeNode temp = stack.pop();
-                current = temp.rightChild;
+                current = temp.right;
             }
         }
         return list;
@@ -53,9 +53,9 @@ public class BinaryTreeUtil {
      * 前序遍历非递归实现二:
      *  1 将根节点入栈
      *  2 当栈不为空时开始循环:
-     *  1)弹出栈顶结点p,输出弹出的节点;
-     *  2)先将p.rightChild入栈;
-     *  3)再将p.leftChild入栈;
+     *      1)弹出栈顶结点p,输出弹出的节点,打印节点;
+     *      2)先将p.rightChild入栈;
+     *      3)再将p.leftChild入栈;
      *
      * @param root
      * @return
@@ -72,8 +72,8 @@ public class BinaryTreeUtil {
             node = stack.pop();
             if (node != null) {
                 list.add(node);
-                stack.push(node.rightChild);
-                stack.push(node.leftChild);
+                stack.push(node.right);
+                stack.push(node.left);
             }
         }
         return list;
@@ -83,7 +83,7 @@ public class BinaryTreeUtil {
      * 中序遍历非递归实现: 和前序实现一类似,只是将打印操作放到出栈时执行
      *   实现思路:
      *      中序遍历是要先遍历左子树，然后根节点，最后遍历右子树。所以需要先把根节点入栈然后再一直把左子树入栈
-     *      直到左子树为空，此时停止入栈。栈顶节点就是我们需要访问的节点，取栈顶节点p并访问。然后改节点可能有右子树，所以
+     *      直到左子树为空，此时停止入栈。栈顶节点就是我们需要访问的节点，取栈顶节点p并访问。然后该节点可能有右子树，所以
      *      访问完节点p后还要判断p的右子树是否为空，如果为空则接下来要访问的节点在栈顶，所以将p赋值为null。如果不为空则
      *      将p赋值为其右子树的值。 循环结束的条件是p不为空或者栈不为空。
      * @param root
@@ -102,12 +102,12 @@ public class BinaryTreeUtil {
         while (current!=null || !stack.empty()){
             while (current!=null){
                 stack.push(current);
-                current = current.leftChild;
+                current = current.left;
             }
             if (!stack.empty()){
                 BinaryTreeNode temp = stack.pop();
                 list.add(temp);
-                current = temp.rightChild;
+                current = temp.right;
             }
         }
         return list;
@@ -134,21 +134,20 @@ public class BinaryTreeUtil {
         stack.push(root);
         while (!stack.empty()){
             current = stack.peek();
-            if ((current.leftChild==null && current.rightChild==null)
-                    ||(previous!=null &&(previous==current.leftChild || previous == current.rightChild))){
-                // 后一条件也可以写为( (previous == current.rightChild) ||
-                // (previous== current.leftChild && current.rightChild==null) )
+            if ((current.left ==null && current.right ==null)
+                    || ( (previous == current.right) || (previous== current.left && current.right==null) )){
+                // 后一条件也可以写为||(previous!=null &&(previous==current.left || previous == current.right))
                 // 如果是叶子节点或者左右子节点均已访问过,则可以出栈并访问
                 BinaryTreeNode temp = stack.pop();
                 list.add(temp);
                 previous = temp;
             }else {
                 // 否则将current的右,左子树依次进栈
-                if (current.rightChild!=null){
-                    stack.push(current.rightChild);
+                if (current.right !=null){
+                    stack.push(current.right);
                 }
-                if (current.leftChild!=null){
-                    stack.push(current.leftChild);
+                if (current.left !=null){
+                    stack.push(current.left);
                 }
             }
         }
@@ -171,11 +170,11 @@ public class BinaryTreeUtil {
         while (!queue.isEmpty()){
             BinaryTreeNode temp = queue.poll();
             list.add(temp);
-            if (temp.leftChild!=null){
-                queue.offer(temp.leftChild);
+            if (temp.left !=null){
+                queue.offer(temp.left);
             }
-            if (temp.rightChild!=null){
-                queue.offer(temp.rightChild);
+            if (temp.right !=null){
+                queue.offer(temp.right);
             }
         }
         return list;
@@ -270,6 +269,11 @@ public class BinaryTreeUtil {
         return root;
     }
 
+    /**
+     * 数组生成二叉搜索树
+     * @param nums
+     * @return
+     */
     public static TreeNode getBST(int[] nums){
 
         Arrays.sort(nums);

@@ -36,9 +36,6 @@ public class SortUtil {
             for (int j = 0; j < len - 1 - i; j++) { // 每次循环比较的次数
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
-                    /*temp = numbers[j];
-                    numbers[j] = numbers[j + 1];
-                    numbers[j + 1] = temp;*/
                 }
             }
         }

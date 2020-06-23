@@ -14,9 +14,9 @@ import java.util.Set;
  */
 public class Sub38_StringPermutation {
     public static void main(String[] args) {
-        System.out.println("123的排列: "+ permutation("123"));
-        System.out.println("abc的组合:");
-        combination("abc");
+        System.out.println("12的排列: "+ permutation("12"));
+        System.out.println("abcc的组合:");
+        combination("abcc");
     }
 
     /**
@@ -37,6 +37,12 @@ public class Sub38_StringPermutation {
         return list;
     }
 
+    /**
+     * 排列
+     * @param chars
+     * @param begin
+     * @param list
+     */
     private static void permutation(char[] chars, int begin, ArrayList<String> list) {
 
         if (begin == chars.length - 1) {
@@ -81,7 +87,7 @@ public class Sub38_StringPermutation {
      * 从start下标开始找出m个数字组合
      * @param chars
      * @param start
-     * @param m
+     * @param m 从剩余字符中选出m个
      * @param builder
      */
     private static void combination(char[] chars, int start, int m, StringBuilder builder) {

@@ -22,7 +22,7 @@ public class Sub07_ReconstructBinaryTree {
         BinaryTreeNode root = constructBinaryTree(pre,in);
         ArrayList<BinaryTreeNode> list = BinaryTreeUtil.levelTraverse(root);
         for (BinaryTreeNode node : list) {
-            System.out.print(node.value+" ");
+            System.out.print(node.val +" ");
         }
     }
 
@@ -55,11 +55,11 @@ public class Sub07_ReconstructBinaryTree {
         int len = inOrder - startIn;
         if (len > 0){
             // 构建左子树
-            root.leftChild = constructBinaryTreeCore(pre,startPre+1,startPre+len,in,startIn,inOrder-1);
+            root.left = constructBinaryTreeCore(pre,startPre+1,startPre+len,in,startIn,inOrder-1);
         }
         if (inOrder < endIn){
             // 构建右子树
-            root.rightChild = constructBinaryTreeCore(pre,startPre+len+1,endPre,in,inOrder+1,endIn);
+            root.right = constructBinaryTreeCore(pre,startPre+len+1,endPre,in,inOrder+1,endIn);
         }
         return root;
     }

@@ -28,14 +28,14 @@ public class Sub26_SubStructureInTree {
         boolean result = false;
         if (root1 != null && root2!=null){
 
-            if (root1.value == root2.value){
+            if (root1.val == root2.val){
                 result = doHasSubTree(root1,root2);
             }
             if (!result){
-                result = doHasSubTree(root1.leftChild,root2);
+                result = hasSubtree(root1.left,root2);
             }
             if (!result){
-                result = doHasSubTree(root1.rightChild,root2);
+                result = hasSubtree(root1.right,root2);
             }
         }
         return result;
@@ -50,10 +50,10 @@ public class Sub26_SubStructureInTree {
             return false;
         }
 
-        if (root1.value != root2.value) {
+        if (root1.val != root2.val) {
             return false;
         }
-        return doHasSubTree(root1.leftChild,root2.leftChild) &&
-                doHasSubTree(root1.rightChild,root2.rightChild);
+        return doHasSubTree(root1.left,root2.left) &&
+                doHasSubTree(root1.right,root2.right);
     }
 }

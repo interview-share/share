@@ -10,6 +10,26 @@ import java.util.Stack;
  * @package_name sword2offer.chapter5
  * @date 2019/2/9 0:20
  * @description God Bless, No Bug!
+ *
+ * 两个链表的第一个公共结点
+ * 题目描述
+ * 输入两个链表，找出它们的第一个公共结点。
+ *
+ * 样例
+ *
+ * 给出两个链表如下所示：
+ * A：        a1 → a2
+ *                    ↘
+ *                      c1 → c2 → c3
+ *                    ↗
+ * B:     b1 → b2 → b3
+ *
+ * 输出第一个公共节点c1
+ * 解法
+ * 先遍历两链表，求出两链表的长度，再求长度差 |n1 - n2|。
+ *
+ * 较长的链表先走 |n1 - n2| 步，之后两链表再同时走，首次相遇时的节点即为两链表的第一个公共节点。
+ *
  */
 public class Sub52_TheFirstSameNodeInList {
     public static void main(String[] args) {
@@ -40,7 +60,9 @@ public class Sub52_TheFirstSameNodeInList {
      * @return
      */
     public ListNode FindFirstCommonNode2(ListNode pHead1, ListNode pHead2) {
-        if (pHead1==null||pHead2==null) return null;
+        if (pHead1==null||pHead2==null) {
+            return null;
+        }
         int count1 = 0,count2=0;
         ListNode node1=pHead1,node2=pHead2;
         while (node1!=null){
@@ -81,7 +103,9 @@ public class Sub52_TheFirstSameNodeInList {
      * @return
      */
     public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
-        if (pHead1==null||pHead2==null) return null;
+        if (pHead1==null||pHead2==null) {
+            return null;
+        }
 
         Stack<ListNode> stack1 = new Stack<>();
         Stack<ListNode> stack2 = new Stack<>();
@@ -102,8 +126,12 @@ public class Sub52_TheFirstSameNodeInList {
         while (!stack1.empty() &&!stack2.empty()){
             pop1 = stack1.pop();
             pop2 = stack2.pop();
-            if(pop1 == pop2) result = pop1;
-            if( stack1.empty() ||stack2.empty()) break;
+            if(pop1 == pop2) {
+                result = pop1;
+            }
+            if( stack1.empty() ||stack2.empty()) {
+                break;
+            }
         }
         return result;
     }

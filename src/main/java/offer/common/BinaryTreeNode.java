@@ -10,12 +10,12 @@ package offer.common;
  */
 public class BinaryTreeNode {
 
-    public int value;
+    public int val;
     public BinaryTreeNode parent;
-    public BinaryTreeNode leftChild;
-    public BinaryTreeNode rightChild;
-    public BinaryTreeNode(int value){
-        this.value = value;
+    public BinaryTreeNode left;
+    public BinaryTreeNode right;
+    public BinaryTreeNode(int val){
+        this.val = val;
     }
     public BinaryTreeNode(){}
 }

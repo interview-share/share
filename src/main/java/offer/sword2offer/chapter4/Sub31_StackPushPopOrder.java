@@ -34,12 +34,12 @@ public class Sub31_StackPushPopOrder {
 
         int i = 0;
         int n = pushA.length;
-        // 判断是否到达数组末尾
+        // 判断是否超出数组末尾
         boolean flag = false;
         for (int val : popA) {
             // 栈为空或者栈顶数字不等于出栈序列
             while (stack.empty() || stack.peek()!=val){
-                // 已到达末尾
+                // 已超出末尾
                 if (i>=n){
                     flag = true;
                     break;

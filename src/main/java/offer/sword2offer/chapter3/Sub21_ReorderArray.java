@@ -2,6 +2,8 @@ package offer.sword2offer.chapter3;
 
 import java.util.Arrays;
 
+import static common.SortUtil.swap;
+
 /**
  * @author LRK
  * @project_name Offer
@@ -21,8 +23,8 @@ import java.util.Arrays;
  */
 public class Sub21_ReorderArray {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        reorderArray2(arr);
+        int[] arr = {1,2,3,4,5,6,7};
+        reorderArray4(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -54,6 +56,11 @@ public class Sub21_ReorderArray {
         Arrays.sort(bak, (x, y) -> (y & 1) - (x & 1));
         Arrays.setAll(array, i -> bak[i]);
     }
+
+    /**
+     * 无法保证相对顺序不变
+     * @param array
+     */
     private static void reorderArray(int[] array) {
 
         int len = array.length;
@@ -78,5 +85,39 @@ public class Sub21_ReorderArray {
     private static boolean isOdd(int num) {
 
         return (num & 1) == 1;
+    }
+
+    /**
+     * 错误记录
+     * @param array
+     */
+    public static void reorderArray4(int [] array) {
+        if(array == null || array.length <2){
+            return;
+        }
+        int i = 0;
+        int j = 0;
+        int n = array.length;
+        while(j<n){
+            if((array[i] & 1) == 1){
+                // 奇数 i++;j++
+                i++;
+                j++;
+            }else{
+                while(j<n){
+                    if((array[j] & 1) == 0){
+                        // j 是偶数
+                        j++;
+                    }else{
+                        break;
+                    }
+                }
+                if(j<n){
+                    swap(array,i,j);
+                    i++;
+                }
+            }
+
+        }
     }
 }
