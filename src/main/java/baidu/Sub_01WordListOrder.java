@@ -16,6 +16,7 @@ public class Sub_01WordListOrder {
         System.out.println(canArrangeWords2(new String[]{"abc","cde","efg","ghi","ijk","klm"}));
     }
 
+
     /**
      * 回溯法
      * @param arr
